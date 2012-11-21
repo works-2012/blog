@@ -20,7 +20,11 @@
   <%= @post.text %>
 </p>
 
-<%= render "comments/comment" %>
+<p>
+  <b>Tags:</b>
+  <%= @post.tags.map { |t| t.text }.join(", ") %>
+</p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %>
+
+<%= render "comments/comment" %>

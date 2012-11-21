@@ -1,12 +1,4 @@
 <p id="notice"><%= notice %></p>
-  <%= @a %>
-<%= @authcom.each do |i| %>
-<%= i.text %>
-<% end %>
-
-<%= @b.each do |i| %>
-<%= i.name %>
-<% end %>
 
 <p>
   <b>Author:</b>
@@ -26,6 +18,11 @@
 <p>
   <b>Text:</b>
   <%= @post.text %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @post.tags.map { |t| t.text }.join(", ") %>
 </p>
 
 <%= render "comments/comment" %>

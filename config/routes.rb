@@ -6,6 +6,7 @@ Raz::Application.routes.draw do
 #  match 'posts/:post_id' => 'comments#show'
 
   resources :posts do
+    resources :tags
     resources :comments
   end
 

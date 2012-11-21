@@ -4,11 +4,12 @@
 <p>
 <%= lis.title %>
 <%= lis.text %>
+<%= Post.where(user_id:params[:id]).title %>
 </p>
 <% end %>
 
 <br><br>
-<%= link_to 'Show', user %> |
+<%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
 
 

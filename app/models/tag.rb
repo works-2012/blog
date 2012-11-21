@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :post_id, :text
+  attr_accessible :text, :post_id
 
   belongs_to :post
 end
