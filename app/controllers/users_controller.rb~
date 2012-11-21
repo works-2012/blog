@@ -39,7 +39,12 @@ class UsersController < ApplicationController
 
   def list
     @list = Post.where(user_id:params[:id])
-
+#@title=[]
+#@post_id=[]
+# @list.each do |i|
+#@title.push(@list.find(i).title)
+#@post_id.push(@list.find(i).id)
+#end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @list }

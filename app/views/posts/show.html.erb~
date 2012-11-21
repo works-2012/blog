@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
+  <%= @a %>
+<%= @authcom.each do |i| %>
+<%= i.text %>
+<% end %>
+
+<%= @b.each do |i| %>
+<%= i.name %>
+<% end %>
 
 <p>
   <b>Author:</b>

@@ -16,6 +16,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
 
+@authcom = Comment.where(post_id:params[:id])
+@a = []
+@authcom.each do |tt|
+@a.push(tt.user_id)
+end
+
+@b = User.find_all_by_id(@a)
+
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
