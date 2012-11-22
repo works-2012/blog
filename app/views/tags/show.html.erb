@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tag:</b>
+  <%= @tag.text %>
+</p>
+
+<%= @list.each do |lis| %>
+<p>
+<%= Post.find_by_id(lis.post_id).title %>
+<%= link_to 'Show post', Post.find_by_id(lis.post_id) %>
+</p>
+<% end %>
+

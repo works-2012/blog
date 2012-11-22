@@ -2,9 +2,9 @@
 
 <%= @list.each do |lis| %>
 <p>
-<%= lis.title %>
+<h3><%= lis.title %></h3>
+<%= link_to 'Show', lis %>
 <%= lis.text %>
-<%= Post.where(user_id:params[:id]).title %>
 </p>
 <% end %>
 

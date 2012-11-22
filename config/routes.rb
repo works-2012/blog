@@ -1,12 +1,12 @@
 Raz::Application.routes.draw do
   resources :users
+  resources :tags
 
   get 'users/:id/list' => 'users#list'
 
 #  match 'posts/:post_id' => 'comments#show'
 
   resources :posts do
-    resources :tags
     resources :comments
   end
 

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tag:</b>
+  <%= @tag.text %>
+</p>
+
+  <%= @list.map { |l| Post.find_by_id(l.post_id).title }.join("< link_to 'Show post', Post.find_by_id(l.post_id) ><br>") %>
+
