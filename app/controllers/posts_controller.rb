@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+    before_filter :authenticate_user!, :only => [:new, :edit]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,8 +26,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    @post = Post.new
 
+    @post = Post.new
+ 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }

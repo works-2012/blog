@@ -1,10 +1,10 @@
 <h1>Listing users</h1>
 
+<%= will_paginate %>
 <table>
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Pass</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,17 +12,23 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
+    <td><%= user.name %> | </td>
     <td><%= user.email %></td>
-    <td><%= user.pass %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', user %> | </td>
     <td><a href=/users/<%= user.id %>/list>Posts list</a></td>
+  <% if user_signed_in? %>
+    <% if current_user.id == user.id %>
+      <td>&nbsp;| <%= link_to 'Edit', edit_user_path(user) %></td>
+      <td>&nbsp;| <%= link_to 'Destroy', user,
+      method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  <% end %>
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate %>
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<% unless user_signed_in? %>
+  <%= link_to 'New User', new_user_path %>
+<% end %>

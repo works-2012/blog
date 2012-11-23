@@ -2,9 +2,9 @@
 
 <%= @list.each do |lis| %>
 <p>
-<h3><%= lis.title %></h3>
-<%= link_to 'Show', lis %>
+<%= lis.title %>
 <%= lis.text %>
+<%= link_to 'Show', lis %>
 </p>
 <% end %>
 

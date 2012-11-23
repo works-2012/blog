@@ -1,6 +1,7 @@
 <h1>Listing tags</h1>
 
 <%= @tags.each do |tag| %>
+<!-- дабы не выводились одинаковые -->
   <% if Tag.find_by_text(tag.text).id == tag.id %>
    <p>
    <%= tag.text %>
@@ -8,5 +9,3 @@
    </p>
   <% end %>
 <% end %>
-
-<!--## asdas-->

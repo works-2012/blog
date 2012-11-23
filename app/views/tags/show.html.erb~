@@ -4,6 +4,11 @@
   <b>Tag:</b>
   <%= @tag.text %>
 </p>
-
-  <%= @list.map { |l| Post.find_by_id(l.post_id).title }.join("< link_to 'Show post', Post.find_by_id(l.post_id) ><br>") %>
-
+<%= will_paginate %>
+<%= @list.each do |lis| %>
+<p>
+<%= Post.find_by_id(lis.post_id).title %>
+<%= link_to 'Show post', Post.find_by_id(lis.post_id) %>
+</p>
+<% end %>
+<%= will_paginate %>

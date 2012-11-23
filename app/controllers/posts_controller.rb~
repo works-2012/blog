@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
+    before_filter :authenticate_user!, :only => [:new, :edit]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 5))
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,15 +17,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
 
-@authcom = Comment.where(post_id:params[:id])
-@a = []
-@authcom.each do |tt|
-@a.push(tt.user_id)
-end
-
-@b = User.find_all_by_id(@a)
-
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -34,8 +26,9 @@ end
   # GET /posts/new
   # GET /posts/new.json
   def new
-    @post = Post.new
 
+    @post = Post.new
+ 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
