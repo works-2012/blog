@@ -10,8 +10,8 @@ Raz::Application.routes.draw do
     resources :comments
   end
 
-  match 'users/:id/auth' => 'users#auth'
-
+  match '/auth_in' => 'users#auth_in'
+#  match '/auth_out' =>  'users#auth_out'
   root :to => 'users#index'
 
 

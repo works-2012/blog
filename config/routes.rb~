@@ -1,5 +1,5 @@
 Raz::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :path => "auth", :path_names => { :sign_in => 'login', :sign_out => 'logout' }
 
   resources :users
   resources :tags
@@ -10,8 +10,8 @@ Raz::Application.routes.draw do
     resources :comments
   end
 
-  match 'user/:id/auth' => 'users#auth'
-
+  match '/auth_in' => 'users#auth_in'
+#  match '/auth_out' =>  'users#auth_out'
   root :to => 'users#index'
 
 

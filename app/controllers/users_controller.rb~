@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-before_filter :authenticate_member!
+
+  before_filter :authenticate_user!, :only => [:auth_in, :auth_out]
+
   # GET /users
   # GET /users.json
   def index
@@ -11,8 +13,10 @@ before_filter :authenticate_member!
     end
   end
 
-  def auth
-    :authenticate_user!
+  def auth_in
+  end
+
+  def auth_out
   end
 
   # GET /users/1
