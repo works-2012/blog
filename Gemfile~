@@ -4,7 +4,11 @@ gem 'rails', '3.2.9.rc3'
 
 gem 'devise'
 
-gem 'will_paginate', '3.0.pre2'
+gem 'will_paginate', '~> 3.0.0'
+
+group :development do
+  gem 'rspec-rails', '2.6.1'
+end
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
