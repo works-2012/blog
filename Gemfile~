@@ -8,17 +8,11 @@ gem 'will_paginate', '~> 3.0.0'
 
 group :development do
   gem 'rspec-rails', '2.12.0'
-  gem 'cucumber'
-  gem 'cucumber-rails', :require => false
-  gem 'guard-cucumber'
 end
 
 group :test do
   gem 'rspec-rails', '2.12.0'
   gem 'webrat', '0.7.1'
-  gem 'cucumber'
-  gem 'cucumber-rails', :require => false
-  gem 'guard-cucumber'
 end
 
 # Bundle edge Rails instead:

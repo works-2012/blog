@@ -7,7 +7,7 @@ gem 'devise'
 gem 'will_paginate', '~> 3.0.0'
 
 group :development do
-  gem 'rspec-rails', '2.12.0'
+  gem 'rspec', '2.12.0'
 end
 
 group :test do

@@ -4,14 +4,14 @@ describe UsersController do
 
   describe "GET 'users'" do
     it "should be successful" do
-      get 'users'
+      get 'index'
       response.should be_success
     end
   end
 
-  describe "GET 'users/1/show'" do
+  describe "GET 'edit'" do
     it "should be successful" do
-      get 'users/1/show'
+      get 'edit'
       response.should be_success
     end
   end
