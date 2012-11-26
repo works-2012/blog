@@ -1,11 +1,17 @@
 <h1>Listing tags</h1>
-
-<%= @tags.each do |tag| %>
+<%= will_paginate %>
+<table>
+<th>Posts</th>
+<th>Show</th>
+<%= @list.each do |tag| %>
 <!-- дабы не выводились одинаковые -->
   <% if Tag.find_by_text(tag.text).id == tag.id %>
-   <p>
-   <%= tag.text %>
+   <tr><td>
+   <strong><%= tag.text %>:</strong>
+   </td><td>
    <%= link_to 'Show tag', tag %>
-   </p>
+   </td></tr>
   <% end %>
 <% end %>
+</table>
+<%= will_paginate %>

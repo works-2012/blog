@@ -2,14 +2,13 @@
 
 <%= @list.each do |lis| %>
 <p>
-<%= lis.title %>
-<%= lis.text %>
+<%= puts "#{lis.title} %>
+<%= puts "#{lis.text} %>
 <%= link_to 'Show', lis %>
 </p>
 <% end %>
 
 <br><br>
-<%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
 
 

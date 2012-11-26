@@ -1,6 +1,10 @@
 class Comment < ActiveRecord::Base
   attr_accessible :post_id, :text, :user_id
 
+  validates :user_id, :format => { :with => /[0-1]/,
+            :message => "Only letters allowed" }
+
   belongs_to :user
   belongs_to :post
+  belongs_to :tag
 end

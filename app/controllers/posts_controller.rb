@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_filter :authenticate_user!, :only => [:new, :edit]
+    before_filter :authenticate_user!, :only => [:new, :edit, :destroy]
   # GET /posts
   # GET /posts.json
   def index
@@ -15,7 +15,13 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @user = User.find(@post.user_id)
+
+    unless User.exists?(@post.user_id)
+      @post_author = 'unsigned'
+    else
+      @post_author = User.find(@post.user_id).name
+      @user = User.find(@post.user_id)
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -76,7 +82,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
+
+    if @post.user_id==current_user.id
     @post.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to posts_url }

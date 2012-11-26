@@ -1,18 +1,11 @@
 <h1>Listing users</h1>
 
-<h3>
-Войти можно через все аккаунты, кроме первых трёх. Пароль: 123456
-<br>
-<a href=/auth_in>Форма входа</a>
-<a href=/auth_out>Завершить сессию</a>
-</h3>
-
 <%= will_paginate %>
-<table>
+<table cellpadding=10>
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th></th>
+    <th colspan="2">Actions</th>
     <th></th>
     <th></th>
   </tr>
@@ -34,8 +27,3 @@
 <% end %>
 </table>
 <%= will_paginate %>
-<br />
-
-<% unless user_signed_in? %>
-  <%= link_to 'New User', new_user_path %>
-<% end %>

@@ -1,6 +1,6 @@
 <h1>Listing posts</h1>
 <%= will_paginate %>
-<table>
+<table cellpadding=10>
   <tr>
     <th>Title</th>
     <th>Text</th>
@@ -13,8 +13,14 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.title %></td>
-    <td><%= post.text %></td>
-    <td><%= User.find_by_id(post.user_id).name %></td>
+    <td width="50px"><%= post.text %></td>
+    <td>
+  <% unless User.find_by_id(post.user_id).nil? %>
+    <%= User.find_by_id(post.user_id).name %>
+  <% else %>
+    unsigned
+  <% end %>
+    </td>
     <td><%= link_to 'Show', post %></td>
 
   <% if user_signed_in? %>
@@ -31,5 +37,6 @@
 <%= will_paginate %>
 
 <br />
-
-<%= link_to 'New Post', new_post_path %>
+  <% if user_signed_in? %>
+    <%= link_to 'New Post', new_post_path %>
+  <% end %>
