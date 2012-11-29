@@ -2,8 +2,8 @@
 
 <%= @list.each do |lis| %>
 <p>
-<%= puts "#{lis.title} %>
-<%= puts "#{lis.text} %>
+<%= lis.title %>
+<%= lis.text %>
 <%= link_to 'Show', lis %>
 </p>
 <% end %>

@@ -3,7 +3,7 @@
 <table>
 <th>Posts</th>
 <th>Show</th>
-<%= @list.each do |tag| %>
+<%= @tags.each do |tag| %>
 <!-- дабы не выводились одинаковые -->
   <% if Tag.find_by_text(tag.text).id == tag.id %>
    <tr><td>

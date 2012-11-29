@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
+    @title = 'Sign up'
     @user = User.new
 
     respond_to do |format|
@@ -92,6 +93,7 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
+
     if current_user.id == @user.id
     @user.destroy
     end
