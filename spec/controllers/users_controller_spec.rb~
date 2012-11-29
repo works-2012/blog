@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-#Index-страница
 describe UsersController do
 
+#Index-страница
   describe "GET 'users'" do
     it "should be successful" do
       get 'index'
@@ -45,7 +45,7 @@ describe UsersController do
       get :show, :id => @user
       response.should be_success
     end
-
+sign_in @user
 #Страница редактирования данных юзера
     it "should be successful" do
       get :edit, :id => @user

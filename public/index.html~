@@ -17,15 +17,7 @@
 <br><br>
 <a href="/tags">Здесь</a> и ещё кое-где вылезает табличный "мусор" от .each, выводящей результат запроса where. Добивать не стал, полагаю наипростейший вариант подскажете.
 <br><br>
-Тестов пока нет, теоретически ознакомился, на практике rspec ругается на любые тесты
-<pre>
-  1) UsersController GET 'users' should be successful
-     Failure/Error: get 'users'
-     ActionController::RoutingError:
-       No route matches {:controller=>"users", :action=>"users"}
-     # ./spec/controllers/users_controller_spec.rb:7:in `block (3 levels) in &#60;top (required)>'
-</pre>
-Полагаю ошибку в конфигурации.
+Тесты сделаны. Три из них работают некорректно. Как решить пока не знаю. Также нет тестов для аутентифицированных пользователей, ибо в доке к devise не говорится, как представить юзера через тест.
 
 <li><a href="/users">Все юзера</a></li>
 <li><a href="/posts">Все посты</a></li>
